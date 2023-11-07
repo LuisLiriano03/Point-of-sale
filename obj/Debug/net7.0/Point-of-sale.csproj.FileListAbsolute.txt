@@ -1,0 +1,15 @@
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\bin\Debug\net7.0\Point-of-sale.exe
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\bin\Debug\net7.0\Point-of-sale.deps.json
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\bin\Debug\net7.0\Point-of-sale.runtimeconfig.json
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\bin\Debug\net7.0\Point-of-sale.dll
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\bin\Debug\net7.0\Point-of-sale.pdb
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\Point-of-sale.csproj.AssemblyReference.cache
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\Point-of-sale.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\Point-of-sale.AssemblyInfoInputs.cache
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\Point-of-sale.AssemblyInfo.cs
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\Point-of-sale.csproj.CoreCompileInputs.cache
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\Point-of-sale.dll
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\refint\Point-of-sale.dll
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\Point-of-sale.pdb
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\Point-of-sale.genruntimeconfig.cache
+C:\Users\Luis\Desktop\PracticaPOOJava\PointOfSale\Point-of-sale\obj\Debug\net7.0\ref\Point-of-sale.dll
