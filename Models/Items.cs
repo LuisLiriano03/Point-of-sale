@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.Models
 {
-    internal interface Items
+    public interface Items
     {
         string Name { get; }
         decimal Price { get; }
