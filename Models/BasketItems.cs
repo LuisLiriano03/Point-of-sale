@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.Models
 {
-    internal class BasketItems : Items
+    public class BasketItems : Items
     {
         public string Name { get; }
         public decimal Price { get; }
@@ -24,7 +24,7 @@ namespace Point_of_sale.Models
 
         public decimal CalculateTaxes()
         {
-            return 0; 
+            return 0;
         }
 
     }

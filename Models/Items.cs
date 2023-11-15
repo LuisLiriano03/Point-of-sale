@@ -8,8 +8,8 @@ namespace Point_of_sale.Models
 {
     public interface Items
     {
-        string Name { get; }
-        decimal Price { get; }
+        public string Name { get; }
+        public decimal Price { get;  }
         decimal CalculateAmount(int NumberOfItems);
         decimal CalculateTaxes();
 
