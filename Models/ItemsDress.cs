@@ -10,6 +10,9 @@ namespace Point_of_sale.Models
     {
         public string Name { get; }
         public decimal Price { get; }
+        public string ItemType => "DressItems";
+
+        private decimal Taxes { get; } = 0.18m;
 
         public ItemsDress(string name, decimal price)
         {
@@ -17,15 +20,9 @@ namespace Point_of_sale.Models
             this.Price = price;
         }
 
-        public decimal CalculateAmount(int NumberOfItems)
-        {
-            return Price * NumberOfItems;
-        }
+        public decimal CalculateAmount(int NumberOfItems) => Price * NumberOfItems;
 
-        public decimal CalculateTaxes()
-        {
-            return Price * 0.18m;
-        }
+        public decimal CalculateTaxes() => Price * Taxes;
 
     }
 }

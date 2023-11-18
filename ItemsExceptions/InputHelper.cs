@@ -20,7 +20,24 @@ namespace Point_of_sale.ItemsExceptions
                 }
                 else
                 {
-                    Console.WriteLine("Valor no válido, por favor ingrese un número.");
+                    Console.WriteLine("Invalid value, please enter a valid number.");
+                }
+            }
+        }
+
+        public static decimal AskForDecimal()
+        {
+            while (true)
+            {
+                string input = Console.ReadLine();
+
+                if (decimal.TryParse(input, out decimal number))
+                {
+                    return number;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid value, please enter a valid decimal number.");
                 }
             }
         }
@@ -37,7 +54,7 @@ namespace Point_of_sale.ItemsExceptions
                 }
                 else
                 {
-                    Console.WriteLine("Valor no válido, por favor ingrese un texto.");
+                    Console.WriteLine("Invalid value, please enter a valid text.");
                 }
             }
         }
