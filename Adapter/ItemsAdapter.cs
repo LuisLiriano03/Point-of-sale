@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.Adapter
 {
-    internal class ItemsAdapter : Items
+    public class ItemsAdapter : Items
     {
         private readonly Items items;
 
