@@ -10,6 +10,7 @@ namespace Point_of_sale.Models
     {
         public string Name { get; }
         public decimal Price { get; }
+        public string ItemType => "BasketItems";
 
         public BasketItems(string name, decimal price)
         {
@@ -17,15 +18,8 @@ namespace Point_of_sale.Models
             this.Price = price;
         }
 
-        public decimal CalculateAmount(int NumberOfItems)
-        {
-            return this.Price * NumberOfItems;
-        }
+        public decimal CalculateAmount(int NumberOfItems) => Price * NumberOfItems;
 
-        public decimal CalculateTaxes()
-        {
-            return 0;
-        }
-
+        public decimal CalculateTaxes() => 0;
     }
 }

@@ -10,6 +10,7 @@ namespace Point_of_sale.Models
     {
         public string Name { get; }
         public decimal Price { get;  }
+        string ItemType { get; }
         decimal CalculateAmount(int NumberOfItems);
         decimal CalculateTaxes();
 

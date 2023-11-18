@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Point_of_sale.Adapter;
+using Point_of_sale.SingleResponsibility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +10,21 @@ namespace Point_of_sale.Models
 {
     public class Billing : IInvoicing
     {
+        private readonly ShowItems showItems;
+        private readonly IUserInputHandler userInputHandler;
+        private readonly IProductProcessor productProcessor;
+
+        public Billing(ShowItems showItems, IProductProcessor productProcessor, IUserInputHandler userInputHandler)
+        {
+            this.showItems = showItems;
+            this.productProcessor = productProcessor;
+            this.userInputHandler = userInputHandler;
+        }
+
         public void GenerateInvoice(List<Items> items)
         {
-            ShowItems showItems = new ShowItems();
-            Console.WriteLine("Generated Invoice:");
-            Console.WriteLine("===================");
+            Console.WriteLine("Generated Invoice:" +
+                            "\n\"===================\"");
 
             decimal total = 0;
 
@@ -20,35 +32,17 @@ namespace Point_of_sale.Models
 
             Console.Write("Select the product number to add to the invoice (0 to finish): ");
 
-            while (int.TryParse(Console.ReadLine(), out int selectedIndex) && selectedIndex >= 0 && selectedIndex <= items.Count)
+            while (true)
             {
-                if (selectedIndex == 0)
+                if (!userInputHandler.TryGetSelectedIndex(out int selectedIndex, items.Count) || selectedIndex == 0)
                 {
                     break;
                 }
 
-                Items selectedItem = items[selectedIndex - 1];
-
-                Console.Write($"Enter the quantity for {selectedItem.Name}: ");
-                if (int.TryParse(Console.ReadLine(), out int quantity) && quantity > 0)
-                {
-                    decimal amount = selectedItem.Price * quantity;
-                    total += amount;
-
-                    Console.WriteLine($"Added {quantity} {selectedItem.Name}(s) to the invoice. Amount: {amount}");
-                }
-                else
-                {
-                    Console.WriteLine("Invalid quantity. Please try again.");
-                }
-
-                Console.Write("Select another product number (0 to finish): ");
+                productProcessor.ProcessSelectedProduct(items, selectedIndex, ref total, userInputHandler);
             }
 
             Console.WriteLine($"Total: {total}");
-
-
-
         }
     }
 }

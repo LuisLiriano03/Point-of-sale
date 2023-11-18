@@ -9,26 +9,26 @@ namespace Point_of_sale.Adapter
 {
     internal class ItemsAdapter : Items
     {
-        
-        private readonly Items _originalItem;
+        private readonly Items items;
 
         public ItemsAdapter(Items originalItem)
         {
-            _originalItem = originalItem;
+            items = originalItem;
         }
 
-        public string Name => _originalItem.Name;
+        public string Name => items.Name;
 
-        public decimal Price => _originalItem.Price;
+        public decimal Price => items.Price;
+        public string ItemType => items.ItemType;
 
         public decimal CalculateAmount(int NumberOfItems)
         {
-            return _originalItem.CalculateAmount(NumberOfItems);
+            return items.CalculateAmount(NumberOfItems);
         }
 
         public decimal CalculateTaxes()
         {
-            return _originalItem.CalculateTaxes();
+            return items.CalculateTaxes();
         }
 
     }

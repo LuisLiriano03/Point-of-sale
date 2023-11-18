@@ -1,58 +1,57 @@
 ﻿
-
-
-
+using Point_of_sale.Adapter;
+using Point_of_sale.DataAddAndDisplay;
+using Point_of_sale.ItemsExceptions;
 using Point_of_sale.Models;
+using Point_of_sale.SingleResponsibility;
 
-internal class Program
+List<Items> items = new List<Items>();
+
+ShowItems showItems = new ShowItems();
+AddItems addItems = new AddItems();
+
+IUserInputHandler userInputHandler = new ConsoleUserInputHandler();
+ProductProcessor productProcessor = new ProductProcessor(userInputHandler);
+Billing invoicing = new Billing(showItems, productProcessor, userInputHandler);
+
+while (true)
 {
-    static void Main()
+    Console.WriteLine("Select an option:" +
+        "\n1 - Add Product" +
+        "\n2 - View Products" +
+        "\n3 - Generate Invoice" +
+        "\n4 - Exit");
+
+    Console.Write("\nEnter a Options: ");
+    int option = InputHelper.AskForNumber();
+
+    switch (option)
     {
-        List<Items> items = new List<Items>();
-        IInvoicing invoicing = new Billing();
-        ShowItems showItems = new ShowItems();
-        AddItems addItems = new AddItems();
+        case 1:
+            addItems.AddProduct(items);
+            break;
+        case 2:
+            showItems.ShowProducts(items);
+            break;
+        case 3:
+            List<Items> adaptedItems = new List<Items>();
 
-        while (true)
-        {
-            Console.WriteLine("Select an option:");
-            Console.WriteLine("1 - Add Product");
-            Console.WriteLine("2 - View Products");
-            Console.WriteLine("3 - Generate Invoice");
-            Console.WriteLine("0 - Exit");
-
-            if (int.TryParse(Console.ReadLine(), out int option))
+            foreach (var item in items)
             {
-                switch (option)
-                {
-                    case 1:
-                        addItems.AddProduct(items);
-                        break;
-                    case 2:
-                        showItems.ShowProducts(items);
-                        break;
-                    case 3:
-                        invoicing.GenerateInvoice(items);
-                        break;
-                    case 0:
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option. Please try again.");
-                        break;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid option. Please try again.");
+                adaptedItems.Add(new ItemsAdapter(item));
             }
 
-            Console.WriteLine();
-        }
+            invoicing.GenerateInvoice(adaptedItems);
+            break;
+        case 4:
+            Environment.Exit(0);
+            break;
+        default:
+            Console.WriteLine("Invalid option. Please try again.");
+            break;
     }
 
-
-    
+    Console.WriteLine();
 }
 
 

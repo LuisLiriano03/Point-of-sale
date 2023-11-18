@@ -10,12 +10,12 @@ namespace Point_of_sale.Models
     {
         public void ShowProducts(List<Items> items)
         {
-            Console.WriteLine("Available Products:");
-            Console.WriteLine("===================");
+            Console.WriteLine("Available Products:" +
+                            "\n\"===================\"");
 
             for (int i = 0; i < items.Count; i++)
             {
-                Console.WriteLine($"{i + 1} - Name: {items[i].Name}, Price: {items[i].Price}");
+                Console.WriteLine($"{i + 1} - Name: {items[i].Name}, Price: {items[i].Price}, Category: {items[i].ItemType}");
             }
 
             Console.WriteLine();
