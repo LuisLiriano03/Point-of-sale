@@ -11,4 +11,5 @@ namespace Point_of_sale.SingleResponsibility
     {
         void ProcessSelectedItem(List<Item> items, int selectedIndex, ref decimal total, IUserInputHandler userInputHandler);
     }
+
 }

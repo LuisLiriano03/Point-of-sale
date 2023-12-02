@@ -22,4 +22,5 @@ namespace Point_of_sale.Models
 
         public decimal CalculateTaxes() => 0;
     }
+
 }

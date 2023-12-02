@@ -10,6 +10,5 @@ namespace Point_of_sale.SingleResponsibility
     {
         bool TryGetSelectedIndex(out int selectedIndex, int itemCount);
         bool TryGetQuantity(out int quantity);
-
     }
 }

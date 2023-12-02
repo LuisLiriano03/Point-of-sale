@@ -46,7 +46,6 @@ namespace Point_of_sale.DataAddAndDisplay
 
                 Console.WriteLine($"Item added successfully. Type: {option}\n");
                 LoopControl = false;
-
             }
 
         }

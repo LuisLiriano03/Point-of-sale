@@ -10,4 +10,5 @@ namespace Point_of_sale.Models
     {
         void GenerateInvoice(List<Item> item);
     }
+
 }

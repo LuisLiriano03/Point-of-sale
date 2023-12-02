@@ -17,5 +17,6 @@ namespace Point_of_sale.SingleResponsibility
         {
             return int.TryParse(Console.ReadLine(), out quantity);
         }
+
     }
 }

@@ -44,5 +44,6 @@ namespace Point_of_sale.Models
 
             Console.WriteLine($"Total: {total}");
         }
+
     }
 }
