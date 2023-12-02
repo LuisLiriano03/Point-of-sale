@@ -32,4 +32,5 @@ namespace Point_of_sale.Adapter
         }
 
     }
+
 }
