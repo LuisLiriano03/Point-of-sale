@@ -8,6 +8,6 @@ namespace Point_of_sale.Models
 {
     public interface IInvoicing
     {
-        void GenerateInvoice(List<Items> items);
+        void GenerateInvoice(List<Item> item);
     }
 }

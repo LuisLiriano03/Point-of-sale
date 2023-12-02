@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.Models
 {
-    public class ShowItems
+    public class ShowItem
     {
-        public void ShowProducts(List<Items> items)
+        public void ShowProducts(List<Item> item)
         {
             Console.WriteLine("Available Products:" +
                             "\n\"===================\"");
 
-            for (int i = 0; i < items.Count; i++)
+            for (int i = 0; i < item.Count; i++)
             {
-                Console.WriteLine($"{i + 1} - Name: {items[i].Name}, Price: {items[i].Price}, Category: {items[i].ItemType}");
+                Console.WriteLine($"{i + 1} - Name: {item[i].Name}, Price: {item[i].Price}, Category: {item[i].ItemType}");
             }
 
             Console.WriteLine();

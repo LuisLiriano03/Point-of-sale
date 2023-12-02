@@ -5,10 +5,10 @@ using Point_of_sale.ItemsExceptions;
 using Point_of_sale.Models;
 using Point_of_sale.SingleResponsibility;
 
-List<Items> items = new List<Items>();
+List<Item> item = new List<Item>();
 
-ShowItems showItems = new ShowItems();
-AddItems addItems = new AddItems();
+ShowItem showItems = new ShowItem();
+AddItem addItems = new AddItem();
 
 IUserInputHandler userInputHandler = new ConsoleUserInputHandler();
 ProductProcessor productProcessor = new ProductProcessor(userInputHandler);
@@ -28,17 +28,17 @@ while (true)
     switch (option)
     {
         case 1:
-            addItems.AddProduct(items);
+            addItems.AddProduct(item);
             break;
         case 2:
-            showItems.ShowProducts(items);
+            showItems.ShowProducts(item);
             break;
         case 3:
-            List<Items> adaptedItems = new List<Items>();
+            List<Item> adaptedItems = new List<Item>();
 
-            foreach (var item in items)
+            foreach (var item1 in item)
             {
-                adaptedItems.Add(new ItemsAdapter(item));
+                adaptedItems.Add(new ItemsAdapter(item1));
             }
 
             invoicing.GenerateInvoice(adaptedItems);
