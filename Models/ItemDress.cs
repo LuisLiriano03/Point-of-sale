@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.Models
 {
-    internal class ItemsDress : Items
+    internal class ItemDress : Item
     {
         public string Name { get; }
         public decimal Price { get; }
@@ -14,7 +14,7 @@ namespace Point_of_sale.Models
 
         private decimal Taxes { get; } = 0.18m;
 
-        public ItemsDress(string name, decimal price)
+        public ItemDress(string name, decimal price)
         {
             this.Name = name;
             this.Price = price;

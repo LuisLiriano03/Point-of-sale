@@ -10,36 +10,36 @@ namespace Point_of_sale.Models
 {
     public class Billing : IInvoicing
     {
-        private readonly ShowItems showItems;
+        private readonly ShowItem showItems;
         private readonly IUserInputHandler userInputHandler;
-        private readonly IProductProcessor productProcessor;
+        private readonly IteamHandler iteamHandler;
 
-        public Billing(ShowItems showItems, IProductProcessor productProcessor, IUserInputHandler userInputHandler)
+        public Billing(ShowItem showItems, IteamHandler iteamHandler, IUserInputHandler userInputHandler)
         {
             this.showItems = showItems;
-            this.productProcessor = productProcessor;
+            this.iteamHandler = iteamHandler;
             this.userInputHandler = userInputHandler;
         }
 
-        public void GenerateInvoice(List<Items> items)
+        public void GenerateInvoice(List<Item> item)
         {
             Console.WriteLine("Generated Invoice:" +
                             "\n\"===================\"");
 
             decimal total = 0;
 
-            showItems.ShowProducts(items);
+            showItems.ShowProducts(item);
 
             Console.Write("Select the product number to add to the invoice (0 to finish): ");
 
             while (true)
             {
-                if (!userInputHandler.TryGetSelectedIndex(out int selectedIndex, items.Count) || selectedIndex == 0)
+                if (!userInputHandler.TryGetSelectedIndex(out int selectedIndex, item.Count) || selectedIndex == 0)
                 {
                     break;
                 }
 
-                productProcessor.ProcessSelectedProduct(items, selectedIndex, ref total, userInputHandler);
+                iteamHandler.ProcessSelectedItem(item, selectedIndex, ref total, userInputHandler);
             }
 
             Console.WriteLine($"Total: {total}");

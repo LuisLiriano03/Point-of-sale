@@ -7,28 +7,28 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.Adapter
 {
-    public class ItemsAdapter : Items
+    public class ItemsAdapter : Item
     {
-        private readonly Items items;
+        private readonly Item item;
 
-        public ItemsAdapter(Items originalItem)
+        public ItemsAdapter(Item originalItem)
         {
-            items = originalItem;
+            item = originalItem;
         }
 
-        public string Name => items.Name;
+        public string Name => item.Name;
 
-        public decimal Price => items.Price;
-        public string ItemType => items.ItemType;
+        public decimal Price => item.Price;
+        public string ItemType => item.ItemType;
 
         public decimal CalculateAmount(int NumberOfItems)
         {
-            return items.CalculateAmount(NumberOfItems);
+            return item.CalculateAmount(NumberOfItems);
         }
 
         public decimal CalculateTaxes()
         {
-            return items.CalculateTaxes();
+            return item.CalculateTaxes();
         }
 
     }

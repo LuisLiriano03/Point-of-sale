@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.Models
 {
-    public class BasketItems : Items
+    public class BasketItem : Item
     {
         public string Name { get; }
         public decimal Price { get; }
         public string ItemType => "BasketItems";
 
-        public BasketItems(string name, decimal price)
+        public BasketItem(string name, decimal price)
         {
             this.Name = name;
             this.Price = price;

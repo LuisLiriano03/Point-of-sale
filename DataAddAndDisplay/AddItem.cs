@@ -3,20 +3,20 @@ using Point_of_sale.Models;
 
 namespace Point_of_sale.DataAddAndDisplay
 {
-    public class AddItems
+    public class AddItem
     {
-        public void AddProduct(List<Items> items)
+        public void AddProduct(List<Item> item)
         {
-            Items items1;
-            bool agian = true;
+            Item item1;
+            bool LoopControl = true;
 
             Console.Write("\nEnter the item name: ");
             string name = InputHelper.RequestTheText();
 
-            Console.Write("Enter the item price: ");
+            Console.Write("\nEnter the item price: ");
             decimal price = InputHelper.AskForDecimal();
 
-            while (agian)
+            while (LoopControl)
             {
 
                 Console.Write("\nEnter the item type:" +
@@ -29,23 +29,23 @@ namespace Point_of_sale.DataAddAndDisplay
                 switch (option)
                 {
                     case 1:
-                        items1 = new BasketItems(name, price);
+                        item1 = new BasketItem(name, price);
                         break;
                     case 2:
-                        items1 = new ItemsDress(name, price);
+                        item1 = new ItemDress(name, price);
                         break;
                     case 3:
-                        items1 = new TecnologyItems(name, price);
+                        item1 = new TecnologyItem(name, price);
                         break;
                     default:
                         Console.WriteLine("Invalid item type. Please try again.\n");
                         continue;
                 }
 
-                items.Add(items1);
+                item.Add(item1);
 
                 Console.WriteLine($"Item added successfully. Type: {option}\n");
-                agian = false;
+                LoopControl = false;
 
             }
 
