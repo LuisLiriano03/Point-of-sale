@@ -17,9 +17,11 @@ namespace Point_of_sale.Adapter
         }
 
         public string Name => item.Name;
-
         public decimal Price => item.Price;
+        
         public string ItemType => item.ItemType;
+
+        int Item.Stock { get => item.Stock; set => item.Stock = value; }
 
         public decimal CalculateAmount(int NumberOfItems)
         {

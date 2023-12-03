@@ -14,13 +14,13 @@ namespace Point_of_sale.ItemsExceptions
             {
                 string input = Console.ReadLine();
 
-                if (int.TryParse(input, out int numero))
+                if (int.TryParse(input, out int numero) && numero != 0)
                 {
                     return numero;
                 }
                 else
                 {
-                    Console.WriteLine("Invalid value, please enter a valid number.");
+                    Console.WriteLine("Invalid value, please enter a valid non-zero number.");
                 }
             }
         }

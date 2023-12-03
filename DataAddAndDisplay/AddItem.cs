@@ -16,6 +16,9 @@ namespace Point_of_sale.DataAddAndDisplay
             Console.Write("\nEnter the item price: ");
             decimal price = InputHelper.AskForDecimal();
 
+            Console.Write("\nEnter the stock: ");
+            int stock = InputHelper.AskForNumber();
+
             while (LoopControl)
             {
 
@@ -29,13 +32,13 @@ namespace Point_of_sale.DataAddAndDisplay
                 switch (option)
                 {
                     case 1:
-                        item1 = new BasketItem(name, price);
+                        item1 = new BasketItem(name, price, stock);
                         break;
                     case 2:
-                        item1 = new ItemDress(name, price);
+                        item1 = new ItemDress(name, price, stock);
                         break;
                     case 3:
-                        item1 = new TecnologyItem(name, price);
+                        item1 = new TecnologyItem(name, price, stock);
                         break;
                     default:
                         Console.WriteLine("Invalid item type. Please try again.\n");

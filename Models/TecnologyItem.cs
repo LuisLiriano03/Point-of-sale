@@ -10,14 +10,16 @@ namespace Point_of_sale.Models
     {
         public string Name { get; }
         public decimal Price { get; }
+        public int Stock { get; set; }
         public string ItemType => "TecnologyItems";
         private decimal Taxes { get; } = 0.18m;
         private decimal ItemValue { get; } = 0.10m;
         
-        public TecnologyItem(string name, decimal price)
+        public TecnologyItem(string name, decimal price, int stock)
         {
             this.Name = name;
             this.Price = price;
+            this.Stock = stock;
         }
 
         public decimal CalculateAmount(int NumberOfItems)=> Price * NumberOfItems;

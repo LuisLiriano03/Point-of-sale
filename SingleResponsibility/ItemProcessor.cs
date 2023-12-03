@@ -16,25 +16,39 @@ namespace Point_of_sale.SingleResponsibility
             this.userInputHandler = userInputHandler;
         }
 
-        public void ProcessSelectedItem(List<Item> item, int selectedIndex, ref decimal total, IUserInputHandler userInputHandler)
+        public void ProcessSelectedItem(List<Item> items, int selectedIndex, ref decimal total, IUserInputHandler userInputHandler)
         {
-            Item selectedItem = item[selectedIndex - 1];
+            Item selectedItem = items[selectedIndex - 1];
+
             Console.Write($"Enter the quantity for {selectedItem.Name}: ");
 
-            if (!userInputHandler.TryGetQuantity(out int quantity) || quantity <= 0)
+            while (true)
             {
-                Console.WriteLine("Invalid quantity. Please try again.");
-                return;
+                if (!userInputHandler.TryGetQuantity(out int quantity) || quantity <= 0)
+                {
+                    Console.WriteLine("Invalid quantity. Please try again.");
+                    return;
+                }
+
+                if (quantity > selectedItem.Stock)
+                {
+                    Console.WriteLine($"The entered quantity ({quantity}) exceeds the available stock ({selectedItem.Stock}). " +
+                                      "Please enter a valid quantity.");
+                }
+                else
+                {
+                    selectedItem.Stock -= quantity;
+
+                    decimal amount = selectedItem.CalculateAmount(quantity);
+                    decimal taxes = selectedItem.CalculateTaxes();
+
+                    total += amount + taxes;
+
+                    DisplayItemDetails(selectedItem, quantity, amount, taxes);
+                    Console.Write("Select another product number (0 to finish): ");
+                    break;
+                }
             }
-
-            decimal amount = selectedItem.CalculateAmount(quantity);
-            decimal taxes = selectedItem.CalculateTaxes();
-
-            total += amount + taxes;
-
-            DisplayItemDetails(selectedItem, quantity, amount, taxes);
-            Console.Write("Select another product number (0 to finish): ");
-
         }
 
         private void DisplayItemDetails(Item selectedItem, int quantity, decimal amount, decimal taxes)

@@ -15,7 +15,7 @@ namespace Point_of_sale.Models
 
             for (int i = 0; i < item.Count; i++)
             {
-                Console.WriteLine($"{i + 1} - Name: {item[i].Name}, Price: {item[i].Price}, Category: {item[i].ItemType}");
+                Console.WriteLine($"{i + 1} - Name: {item[i].Name}, Stock {item[i].Stock}, Price: {item[i].Price}, Category: {item[i].ItemType}");
             }
 
             Console.WriteLine();
