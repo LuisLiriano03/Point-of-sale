@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.Adapter
 {
-    public class ItemsAdapter : Item
+    public class ItemAdapter : Item
     {
         private readonly Item item;
 
-        public ItemsAdapter(Item originalItem)
+        public ItemAdapter(Item originalItem)
         {
             item = originalItem;
         }

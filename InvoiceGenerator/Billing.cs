@@ -1,20 +1,15 @@
-﻿using Point_of_sale.Adapter;
+﻿using Point_of_sale.Models;
 using Point_of_sale.SingleResponsibility;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Point_of_sale.Models
+namespace Point_of_sale.InvoiceGenerator
 {
     public class Billing : IInvoicing
     {
         private readonly ShowItem showItems;
         private readonly IUserInputHandler userInputHandler;
-        private readonly IteamHandler iteamHandler;
+        private readonly ItemHandler iteamHandler;
 
-        public Billing(ShowItem showItems, IteamHandler iteamHandler, IUserInputHandler userInputHandler)
+        public Billing(ShowItem showItems, ItemHandler iteamHandler, IUserInputHandler userInputHandler)
         {
             this.showItems = showItems;
             this.iteamHandler = iteamHandler;

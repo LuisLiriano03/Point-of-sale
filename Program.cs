@@ -1,6 +1,7 @@
 ﻿
 using Point_of_sale.Adapter;
 using Point_of_sale.DataAddAndDisplay;
+using Point_of_sale.InvoiceGenerator;
 using Point_of_sale.ItemsExceptions;
 using Point_of_sale.Models;
 using Point_of_sale.SingleResponsibility;
@@ -10,7 +11,7 @@ List<Item> item = new List<Item>();
 ShowItem showItems = new ShowItem();
 AddItem addItems = new AddItem();
 
-IUserInputHandler userInputHandler = new ConsoleUserInputHandler();
+IUserInputHandler userInputHandler = new UserInputHandler();
 ItemProcessor productProcessor = new ItemProcessor(userInputHandler);
 Billing invoicing = new Billing(showItems, productProcessor, userInputHandler);
 
@@ -38,7 +39,7 @@ while (true)
 
             foreach (var item1 in item)
             {
-                adaptedItems.Add(new ItemsAdapter(item1));
+                adaptedItems.Add(new ItemAdapter(item1));
             }
 
             invoicing.GenerateInvoice(adaptedItems);

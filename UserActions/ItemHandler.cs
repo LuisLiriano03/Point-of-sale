@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.SingleResponsibility
 {
-    public interface IteamHandler
+    public interface ItemHandler
     {
         void ProcessSelectedItem(List<Item> items, int selectedIndex, ref decimal total, IUserInputHandler userInputHandler);
     }
