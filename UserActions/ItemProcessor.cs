@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.SingleResponsibility
 {
-    public class ItemProcessor : IteamHandler
+    public class ItemProcessor : ItemHandler
     {
         private readonly IUserInputHandler userInputHandler;
 

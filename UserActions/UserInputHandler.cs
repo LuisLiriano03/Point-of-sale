@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Point_of_sale.SingleResponsibility
 {
-    public class ConsoleUserInputHandler : IUserInputHandler
+    public class UserInputHandler : IUserInputHandler
     {
         public bool TryGetSelectedIndex(out int selectedIndex, int itemCount)
         {
